@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PlantGuide</string>
+    <string name="menu_home">Главная</string>
+    <string name="menu_favorites">Избранное</string>
+    <string name="menu_search">Поиск</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_about">О приложении</string>
+    <string name="version">Версия: %s</string>
+    <string name="app_description">PlantGuide - это приложение для изучения зерновых культур. Здесь вы найдете информацию о различных видах зерновых и зернобобовых культур, их особенностях, регионах произрастания и использовании.</string>
+    <string name="developer">Разработчик: Ваша компания</string>
+    <string name="contact">Контакты: contact@plantguide.example.com</string>
+
+
+</resources>
