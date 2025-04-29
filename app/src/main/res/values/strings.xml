@@ -1,14 +1,58 @@
 <resources>
-    <string name="app_name">PlantGuide</string>
+    <string name="app_name">Гид по растениям</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="language">Язык</string>
+    <string name="language_default">Русский</string>
+
     <string name="menu_home">Главная</string>
     <string name="menu_favorites">Избранное</string>
     <string name="menu_search">Поиск</string>
     <string name="menu_settings">Настройки</string>
     <string name="menu_about">О приложении</string>
-    <string name="version">Версия: %s</string>
+
+    <string name="version">Версия: 1.0.0</string>
     <string name="app_description">PlantGuide - это приложение для изучения зерновых культур. Здесь вы найдете информацию о различных видах зерновых и зернобобовых культур, их особенностях, регионах произрастания и использовании.</string>
-    <string name="developer">Разработчик: Ваша компания</string>
+    <string name="developer">Разработчик: Красноперова Татьяна</string>
     <string name="contact">Контакты: contact@plantguide.example.com</string>
+    <string name="more">Узнать больше на Википедии</string>
+
+    <string name="search">Поиск</string>
+    <string name="search_hint">Поиск...</string>
+    <string name="search_button">Поиск</string>
+    <string name="no_results">Ничего не найдено</string>
+
+    <string name="filter_name">Название</string>
+    <string name="filter_region">Регион</string>
+    <string name="filter_usage">Использование</string>
+    <string name="filter_species">Вид</string>
+
+    <string name="climate_conditions">Климатические условия</string>
+    <string name="yield">Урожайность</string>
+    <string name="diseases">Болезни и вредители</string>
+    <string name="usage">Использование</string>
+    <string name="growing_regions">Регионы произрастания</string>
 
 
+    <string name="add_to_favorites">Добавить в избранное</string>
+    <string name="remove_from_favorites">Удалить из избранного</string>
+    <string name="added_to_favorites">Добавлено в избранное</string>
+    <string name="removed_from_favorites">Удалено из избранного</string>
+
+    <string name="empty_favorites">Нет избранных культур</string>
+
+    <string name="test">Тест</string>
+
+    <string name="more_text">Подробнее</string>
+
+
+
+    <string name="previous">Назад</string>
+    <string name="next">Далее</string>
+    <string name="test_results">Результаты теста</string>
+    <string name="correct_answers">Правильных ответов: %1$d из %2$d</string>
+    <string name="your_rating">Ваша оценка: %s</string>
+    <string name="rating_bad">Плохо</string>
+    <string name="rating_satisfactory">Удовлетворительно</string>
+    <string name="rating_good">Хорошо</string>
+    <string name="rating_excellent">Отлично</string>
 </resources>

@@ -1,6 +1,10 @@
 package com.example.plantguide
 
 import android.app.Dialog
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +28,7 @@ class FavoritesFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: GrainsAdapter
     private lateinit var database: AppDatabase
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,11 +43,11 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         database = AppDatabase.getDatabase(requireContext())
+        sharedPreferences = requireContext().getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
 
-        // Инициализация адаптера
-        adapter = GrainsAdapter(emptyList()) { grain ->
+        adapter = GrainsAdapter(emptyList(), { grain ->
             showGrainDetailsDialog(grain)
-        }
+        }, sharedPreferences)
 
         // Настройка RecyclerView
         binding.recyclerView.apply {
@@ -73,6 +78,7 @@ class FavoritesFragment : Fragment() {
     private fun showGrainDetailsDialog(grain: Grains) {
         val dialog = Dialog(requireContext())
         dialog.setContentView(R.layout.grain_detail_dialog)
+        val isEnglish = isEnglish()
 
         // Находим элементы в диалоге
         val image = dialog.findViewById<ImageView>(R.id.dialog_grain_image)
@@ -85,18 +91,38 @@ class FavoritesFragment : Fragment() {
         val usage = dialog.findViewById<TextView>(R.id.dialog_grain_usage)
         val regions = dialog.findViewById<TextView>(R.id.dialog_grain_regions)
         val favButton = dialog.findViewById<Button>(R.id.dialog_fav_button)
+        val moreButton = dialog.findViewById<Button>(R.id.dialog_more_button)
 
-        // Заполняем данные
+        // Заполнение данных с учетом языка
         image.setImageResource(grain.imageResId)
-        name.text = grain.name
-        species.text = "${grain.species} (${grain.subspecies})"
-        description.text = grain.fullDescription
-        climate.text = "Климатические условия: ${grain.climateConditions}"
-        yield.text = "Урожайность: ${grain.yield}"
-        diseases.text = "Болезни и вредители: ${grain.diseases}"
-        usage.text = "Использование: ${grain.usage}"
-        regions.text = "Регионы произрастания: ${grain.growingRegions}"
+        name.text = if (isEnglish) grain.englishName else grain.name
+        species.text = if (isEnglish) grain.englishSpecies else grain.species
+        description.text = if (isEnglish) grain.englishFullDescription else grain.fullDescription
 
+        climate.text = if (isEnglish)
+            "Climate conditions: ${grain.englishClimateConditions}"
+        else
+            "Климатические условия: ${grain.climateConditions}"
+
+        yield.text = if (isEnglish)
+            "Yield: ${grain.englishYield}"
+        else
+            "Урожайность: ${grain.yield}"
+
+        diseases.text = if (isEnglish)
+            "Diseases: ${grain.englishDiseases}"
+        else
+            "Болезни и вредители: ${grain.diseases}"
+
+        usage.text = if (isEnglish)
+            "Usage: ${grain.englishUsage}"
+        else
+            "Использование: ${grain.usage}"
+
+        regions.text = if (isEnglish)
+            "Growing regions: ${grain.englishGrowingRegions}"
+        else
+            "Регионы произрастания: ${grain.growingRegions}"
         // Настройка кнопки избранного
         favButton.text = "Удалить из избранного"
         favButton.setBackgroundResource(R.drawable.bg_next_button_red)
@@ -131,6 +157,17 @@ class FavoritesFragment : Fragment() {
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         dialog.show()
+
+        moreButton.setOnClickListener {
+            val query = grain.name.replace(" ", "_") // Заменяем пробелы на подчеркивания для URL
+            val url = "https://ru.wikipedia.org/wiki/$query" // Формируем URL для Wikipedia
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)) // Создаем Intent
+            startActivity(intent) // Открываем браузер с URL
+        }
+    }
+    private fun isEnglish(): Boolean {
+        val lang = sharedPreferences.getString("app_language", "ru") ?: "ru"
+        return lang == "en"
     }
 
     override fun onResume() {

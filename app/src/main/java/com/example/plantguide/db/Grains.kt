@@ -6,16 +6,25 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "grains")
 data class Grains(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val name: String,                   // Название культуры
-    val species: String,                // Вид
-    val subspecies: String,             // Подвид
-    val shortDescription: String,       // Краткое описание для карточки
-    val fullDescription: String,        // Полное описание
-    val climateConditions: String,      // Климатические условия
-    val yield: String,                  // Урожайность
-    val diseases: String,               // Болезни и вредители
-    val usage: String,                  // Использование
-    val growingRegions: String,         // Регионы произрастания
-    val imageResId: Int,                // ID изображения
-    var isFavorite: Boolean = false     // В избранном
+    val name: String,
+    val englishName: String,
+    val species: String,
+    val englishSpecies: String,
+    val subspecies: String,
+    val shortDescription: String,
+    val englishShortDescription: String,
+    val fullDescription: String,
+    val englishFullDescription: String,
+    val climateConditions: String,
+    val englishClimateConditions: String,
+    val yield: String,
+    val englishYield: String,
+    val diseases: String,
+    val englishDiseases: String,
+    val usage: String,
+    val englishUsage: String,
+    val growingRegions: String,
+    val englishGrowingRegions: String,
+    val imageResId: Int,
+    var isFavorite: Boolean = false
 )

@@ -31,4 +31,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/search" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/fab_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/test" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

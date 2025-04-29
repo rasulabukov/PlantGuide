@@ -13,7 +13,6 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:background="@drawable/back"
-        android:text="Поиск"
         android:layout_margin="10dp"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Поиск..."
+            android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
             android:inputType="text" />
 
@@ -50,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:background="@drawable/bg_next_button"
-            android:text="Поиск"
+            android:text="@string/search_button"
             android:textColor="@color/white" />
     </LinearLayout>
 
@@ -68,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Ничего не найдено"
+        android:text="@string/no_results"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>

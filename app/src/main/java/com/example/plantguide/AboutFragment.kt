@@ -28,12 +28,6 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.appName.text = getString(R.string.app_name)
-        binding.version.text = "Версия: 1.0.0"
-        binding.description.text = "PlantGuide - это приложение для изучения зерновых культур. Здесь вы найдете информацию о различных видах зерновых и зернобобовых культур, их особенностях, регионах произрастания и использовании."
-        binding.developer.text = "Разработчик: Красноперова Татьяна"
-        binding.contact.text = "Контакты: contact@plantguide.example.com"
-
         binding.websiteButton.setOnClickListener {
             openWikipediaPage()
         }

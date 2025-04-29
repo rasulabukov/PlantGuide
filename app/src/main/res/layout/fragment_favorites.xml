@@ -17,7 +17,7 @@
         android:id="@+id/emptyFavoritesText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Нет избранных культур"
+        android:text="@string/empty_favorites"
         android:gravity="center"
         android:textSize="18sp"
         android:visibility="visible"/>

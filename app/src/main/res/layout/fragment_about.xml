@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
+            android:text="@string/app_name"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
@@ -30,6 +31,7 @@
             android:id="@+id/version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/version"
             android:textSize="16sp"
             android:layout_marginBottom="24dp"/>
 
@@ -37,6 +39,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/app_description"
             android:textSize="16sp"
             android:lineSpacingMultiplier="1.2"
             android:layout_marginBottom="24dp"/>
@@ -45,6 +48,7 @@
             android:id="@+id/developer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/developer"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
@@ -53,6 +57,7 @@
             android:id="@+id/contact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/contact"
             android:textSize="16sp"
             android:layout_marginBottom="24dp"/>
 
@@ -60,7 +65,7 @@
             android:id="@+id/websiteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Узнать больше на Википедии"
+            android:text="@string/more"
             android:background="@drawable/bg_next_button"
             android:textColor="@android:color/white"
             android:padding="12dp"
